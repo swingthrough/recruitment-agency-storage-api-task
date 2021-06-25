@@ -148,7 +148,7 @@ Example Content:
 
 `DELETE /v1/api/jobAds/1/`
 
-## Filtering
+### Filtering
 To show job candidates that applied for a particular job ad (here a job ad with id 1):
 
 `GET /v1/api/jobCandidates/?job_ad=1`
@@ -156,3 +156,36 @@ To show job candidates that applied for a particular job ad (here a job ad with 
 To show job ads that a particular job candidate applied for (here a job candidate with id 3):
 
 `GET /v1/api/jobAds/?job_candidate=3`
+
+## Frontend
+This is a simple frontend with a couple views:
+
+* table of job candidates
+* table of job ads
+* detail of job candidate (and names of job ads this particular candidate applied to)
+* detail of job ad (and names of candidates that applied to a particuar job ad)
+
+## How to run FE:
+
+Navigate to the frontend folder:
+
+`cd frontend`
+
+Install dependencies by running:
+
+`npm install`
+
+Run the development server:
+
+`npm start`
+
+### API endpoint proxy
+
+In `package.json` file there is an entry:
+```
+"proxy": "http://localhost:8000"
+```
+
+Which is the BE API endpoint used.
+
+Change this before running the server in case you started your BE server on another port.
