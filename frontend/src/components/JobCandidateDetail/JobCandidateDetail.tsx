@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme: Theme) => ({
         alignSelf: 'flex-start',
         marginBottom: theme.spacing(2)
     },
+    deleteButton: {
+        alignSelf: 'flex-start',
+        marginBottom: theme.spacing(2)
+    },
     detailBox: {
         display: 'flex',
         flexDirection: 'column',
@@ -64,9 +68,25 @@ const JobCandidateDetail: React.FC = () => {
     useEffect(() => {
         loadData();
     }, [loadData]);
+
+    const handleDelete = useCallback(
+        async () => {
+            const response = await fetch(`/v1/api/jobCandidates/${id}`, {
+                method: 'DELETE',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                }
+            })
+
+            history.push(ROUTES.JOB_CANDIDATES)
+        },
+        [],
+    )
     
     return <Box className={classes.wrapper}>
         <Button className={classes.backButton} onClick={() => history.push(ROUTES.JOB_CANDIDATES)}>Back to Job Candidates</Button>
+        <Button className={classes.deleteButton} onClick={e => handleDelete()}>Delete this candidate</Button>
         <Box className={classes.detailBox}>
             {isLoading === true ? (<Typography>Loading...</Typography>) : (
                 jobCandidate === null ? (

@@ -8,6 +8,7 @@ import { Box, makeStyles, Theme } from '@material-ui/core'
 import JobCandidateDetail from './components/JobCandidateDetail/JobCandidateDetail';
 import JobAdDetail from './components/JobAdDetail/JobAdDetail';
 import JobAds from './components/JobAds/JobAds';
+import CreateJobCandidate from './components/CreateJobCandidate/CreateJobCandidate';
 
 const useStyles = makeStyles((theme: Theme) => ({
   wrapper: {
@@ -37,6 +38,7 @@ function App() {
               <Route path={ROUTES.JOB_CANDIDATES} component={JobCandidates}/>
               <Route path={ROUTES.JOB_AD_DETAIL} component={JobAdDetail}/>
               <Route path={ROUTES.JOB_ADS} component={JobAds}/>
+              <Route path={ROUTES.JOB_CANDIDATE_CREATE} component={CreateJobCandidate}/>
             </Switch>
           </Box>
         </Box>

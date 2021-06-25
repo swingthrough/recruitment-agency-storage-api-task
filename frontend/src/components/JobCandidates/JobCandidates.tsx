@@ -18,9 +18,17 @@ import { JobCandidate } from "../../models/models";
 import { ROUTES } from "../../Routes";
 
 const useStyles = makeStyles((theme: Theme) => ({
+  wrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
   table: {
     minWidth: 650,
   },
+  createButton: {
+    alignSelf: 'flex-start',
+    marginBottom: theme.spacing(2)
+  }
 }));
 
 interface JobCandidatesProps {}
@@ -43,7 +51,8 @@ let JobCandidates: React.FC<JobCandidatesProps> = () => {
   }, [loadData]);
 
   return (
-    <Box>
+    <Box className={classes.wrapper}>
+      <Button variant="contained" className={classes.createButton} onClick={() => history.push(ROUTES.JOB_CANDIDATE_CREATE)}>Create candidate</Button>
       <TableContainer component={Paper}>
         <Table className={classes.table}>
           <TableHead>
