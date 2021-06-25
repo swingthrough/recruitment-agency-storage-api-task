@@ -164,6 +164,8 @@ This is a simple frontend with a couple views:
 * table of job ads
 * detail of job candidate (and names of job ads this particular candidate applied to)
 * detail of job ad (and names of candidates that applied to a particuar job ad)
+* create a new job candidate (currently only name, expected salary and skills, not yet implemented to apply for a job ad)
+* delete a job candidate in job candidate detail view
 
 ## How to run FE:
 
